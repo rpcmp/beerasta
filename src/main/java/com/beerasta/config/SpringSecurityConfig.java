@@ -25,18 +25,17 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
+        http.cors().and().authorizeRequests()
                 .antMatchers("/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/user", true)
                 .permitAll()
                 .and()
                 .logout()
                 .permitAll();
-        http.cors();
     }
 
     @Bean
