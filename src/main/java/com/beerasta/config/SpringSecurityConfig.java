@@ -19,16 +19,14 @@ import javax.sql.DataSource;
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private DataSource dataSource;
-
-    @Autowired
     @Qualifier("userRepositoryUserDetailsService")
     public UserDetailsService userDetailsService;
 
     @Autowired
+    @Qualifier("encoderPassword")
     private PasswordEncoder passwordEncoder;
 
-    @Bean
+    @Bean("encoderPassword")
     public PasswordEncoder passwordEncoder() {
         return new StandardPasswordEncoder("53cr3t");
     }
