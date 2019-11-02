@@ -1,18 +1,21 @@
 package com.beerasta.web.rest;
 
 import com.beerasta.domain.Item;
+import com.beerasta.domain.User;
 import com.beerasta.service.ItemService;
+import com.beerasta.service.UserService;
 import com.beerasta.web.rest.errors.NotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,6 +28,7 @@ import java.util.stream.Collectors;
 public class ItemResource {
 
     private final ItemService itemService;
+    private final UserService userService;
 
     @GetMapping("/list")
     public ResponseEntity<Object> getAllItems() {
@@ -38,9 +42,10 @@ public class ItemResource {
         return ResponseEntity.ok(itemService.addItem(item));
     }
 
-    @GetMapping("/list/by-user-id")
-    public ResponseEntity<Object> getAllByUser(@RequestParam Long userId) throws NotFoundException {
-        List<Item> items = itemService.getAllByUserId(userId);
+    @GetMapping("/list/by-user")
+    public ResponseEntity<Object> getAllByUser(@AuthenticationPrincipal UserDetails userDetails) throws NotFoundException {
+        User user = userService.findByUsername(userDetails.getUsername());
+        List<Item> items = itemService.getAllByUserId(user);
         log.info(items.stream().map(Item::toString).collect(Collectors.joining(", ")));
         return ResponseEntity.ok(items);
     }

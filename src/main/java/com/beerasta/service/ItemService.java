@@ -14,7 +14,6 @@ import java.util.List;
 public class ItemService {
 
     private final ItemRepository itemRepository;
-    private final UserService userService;
 
     public List<Item> getAllItems() {
         return itemRepository.findAll();
@@ -24,8 +23,7 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public List<Item> getAllByUserId(Long userId) throws NotFoundException {
-        User user = userService.findById(userId);
+    public List<Item> getAllByUserId(User user) throws NotFoundException {
         return itemRepository.findByUser(user);
     }
 

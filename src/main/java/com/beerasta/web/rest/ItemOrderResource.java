@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -40,9 +39,10 @@ public class ItemOrderResource {
         return ResponseEntity.ok(itemOrder);
     }
 
-    @GetMapping("/list/by-user-id")
-    public ResponseEntity<Object> getItemListByUserId(@RequestParam Long userId) throws NotFoundException {
-        List<Item> items = itemOrderService.getListItemByUserId(userId);
+    @GetMapping("/list")
+    public ResponseEntity<Object> getItemListByUserId(@AuthenticationPrincipal UserDetails userDetails) throws NotFoundException {
+        User user = userService.findByUsername(userDetails.getUsername());
+        List<Item> items = itemOrderService.getListItemByUserId(user);
         log.info(items.stream().map(Item::toString).collect(Collectors.joining(", ")));
         return ResponseEntity.ok(items);
     }
