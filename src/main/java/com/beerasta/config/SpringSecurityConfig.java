@@ -23,7 +23,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService userDetailsService;
 
     @Autowired
-    @Qualifier("encoderPassword")
     private PasswordEncoder passwordEncoder;
 
     @Bean("encoderPassword")
