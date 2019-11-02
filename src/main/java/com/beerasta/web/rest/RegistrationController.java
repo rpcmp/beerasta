@@ -4,6 +4,7 @@ import com.beerasta.domain.User;
 import com.beerasta.security.RegistrationForm;
 import com.beerasta.service.UserService;
 import com.beerasta.web.rest.errors.NotFoundException;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -16,20 +17,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Slf4j
 @Controller
 @CrossOrigin
+@AllArgsConstructor
 public class RegistrationController {
 
     private final UserService userService;
-    private final PasswordEncoder passwordEncoder;
-
-    public RegistrationController(UserService userService,
-                                  @Lazy PasswordEncoder passwordEncoder) {
-        this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     @PostMapping("/registration")
     public ResponseEntity<Object> registration(@RequestBody RegistrationForm form) {
-        User user = form.toUser(passwordEncoder);
+        User user = form.toUser();
         log.info(user.toString());
         try {
             userService.findByUsername(user.getUsername());

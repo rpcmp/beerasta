@@ -10,8 +10,8 @@ public class RegistrationForm {
     private String username;
     private String password;
 
-    public User toUser(PasswordEncoder passwordEncoder) {
-        return new User(username, passwordEncoder.encode(password),true);
+    public User toUser() {
+        return new User(username, password,true);
     }
 
 }

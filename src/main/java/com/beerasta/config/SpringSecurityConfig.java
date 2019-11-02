@@ -23,14 +23,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Qualifier("userRepositoryUserDetailsService")
     public UserDetailsService userDetailsService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Bean("encoderPassword")
-    public PasswordEncoder passwordEncoder() {
-        return new StandardPasswordEncoder("53cr3t");
-    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
@@ -57,8 +49,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder);
+        auth.userDetailsService(userDetailsService);
 
     }
 }
