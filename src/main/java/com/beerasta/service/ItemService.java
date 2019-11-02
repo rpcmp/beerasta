@@ -3,6 +3,7 @@ package com.beerasta.service;
 import com.beerasta.domain.Item;
 import com.beerasta.domain.User;
 import com.beerasta.repository.ItemRepository;
+import com.beerasta.repository.specificaion.ItemSpecification;
 import com.beerasta.web.rest.errors.NotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,8 +16,14 @@ public class ItemService {
 
     private final ItemRepository itemRepository;
 
-    public List<Item> getAllItems() {
-        return itemRepository.findAll();
+    public List<Item> getAllItems(String name,
+                                  Integer levelAlco,
+                                  String time) {
+        ItemSpecification itemSpecification = new ItemSpecification()
+                .setLevelAlco(levelAlco)
+                .setName(name)
+                .setTime(time);
+        return itemRepository.findAll(itemSpecification);
     }
 
     public Item addItem(Item item) {
@@ -32,7 +39,8 @@ public class ItemService {
                 .orElseThrow(() -> new NotFoundException("No item with id " + id));
     }
 
-    public Item deleteItem(Long id, User user) {
+    public Item deleteItem(Long id,
+                           User user) {
         return itemRepository.deleteByIdAndUser(id, user);
     }
 

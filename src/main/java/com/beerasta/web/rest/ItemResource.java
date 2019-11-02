@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,8 +34,10 @@ public class ItemResource {
     private final UserService userService;
 
     @GetMapping("/list")
-    public ResponseEntity<Object> getAllItems() {
-        List<Item> items = itemService.getAllItems();
+    public ResponseEntity<Object> getAllItems(@RequestParam(value = "name", required = false) String name,
+                                              @RequestParam(value = "levelAlco", required = false) Integer levelAlco,
+                                              @RequestParam(value = "time", required = false) String time) {
+        List<Item> items = itemService.getAllItems(name, levelAlco, time);
         log.info(items.stream().map(Item::toString).collect(Collectors.joining(", ")));
         return ResponseEntity.ok(items);
     }
