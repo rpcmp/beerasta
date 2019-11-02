@@ -26,7 +26,7 @@ public class RegistrationController {
         User user = form.toUser(passwordEncoder);
         log.info(user.toString());
         if (userService.findByUsername(user.getUsername()) != null) {
-            ResponseEntity.badRequest();
+            return ResponseEntity.badRequest().build();
         }
         return ResponseEntity.ok(userService.save(user));
     }
