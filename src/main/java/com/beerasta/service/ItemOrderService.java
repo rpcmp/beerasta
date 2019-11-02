@@ -32,4 +32,10 @@ public class ItemOrderService {
                 .stream().map(ItemOrder::getItem).collect(Collectors.toList());
     }
 
+    public ItemOrder deleteItemOrder(Long itemId,
+                                User user) throws NotFoundException {
+        Item item = itemService.getItemById(itemId);
+        return itemOrderRepository.deleteByItemAndUser(item, user);
+    }
+
 }

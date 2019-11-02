@@ -12,7 +12,9 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,6 +50,15 @@ public class ItemResource {
         List<Item> items = itemService.getAllByUserId(user);
         log.info(items.stream().map(Item::toString).collect(Collectors.joining(", ")));
         return ResponseEntity.ok(items);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteItem(@PathVariable("id") Long id,
+                                             @AuthenticationPrincipal UserDetails userDetails) throws NotFoundException {
+        User user = userService.findByUsername(userDetails.getUsername());
+        Item item = itemService.deleteItem(id, user);
+        log.info(item.toString());
+        return ResponseEntity.ok(item);
     }
 
 }

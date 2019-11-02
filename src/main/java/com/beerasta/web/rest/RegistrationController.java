@@ -5,6 +5,7 @@ import com.beerasta.security.RegistrationForm;
 import com.beerasta.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,13 +22,13 @@ public class RegistrationController {
     private final PasswordEncoder passwordEncoder;
 
     @PostMapping("/registration")
-    public String registration(@RequestBody RegistrationForm form) {
+    public ResponseEntity<Object> registration(@RequestBody RegistrationForm form) {
         User user = form.toUser(passwordEncoder);
         log.info(user.toString());
         if (userService.findByUsername(user.getUsername()) != null) {
-            return "redirect:/registration";
+            ResponseEntity.badRequest();
         }
-        return "redirect:/login";
+        return ResponseEntity.ok().build();
     }
 
 }
