@@ -16,4 +16,8 @@ public class UserService {
         return usersRepository.findByUsername(userName)
                 .orElseThrow(() -> new NotFoundException("No user with username " + userName));
     }
+
+    public User save(User user) {
+        return usersRepository.save(user);
+    }
 }

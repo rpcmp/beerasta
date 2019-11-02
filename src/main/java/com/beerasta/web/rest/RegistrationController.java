@@ -28,7 +28,7 @@ public class RegistrationController {
         if (userService.findByUsername(user.getUsername()) != null) {
             ResponseEntity.badRequest();
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(userService.save(user));
     }
 
 }
