@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: beerasta
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: postgres://dzatnvmzsaxvxz:eaab67c50b1a4e1062ebd526e55722e198179e3648d00a135eb24c460cc0d592
+        username: dzatnvmzsaxvxz
+        password: eaab67c50b1a4e1062ebd526e55722e198179e3648d00a135eb24c460cc0d592
+    jpa:
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
