@@ -3,9 +3,7 @@ package com.beerasta.web.rest;
 import com.beerasta.domain.User;
 import com.beerasta.security.RegistrationForm;
 import com.beerasta.service.UserService;
-import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,7 +33,9 @@ public class RegistrationController {
         if (userService.findByUsername(user.getUsername()) != null) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(userService.save(user));
+        User save = userService.save(user);
+        log.info(save.toString());
+        return ResponseEntity.ok(save);
     }
 
 }
