@@ -3,6 +3,7 @@ package com.beerasta.web.rest;
 import com.beerasta.domain.User;
 import com.beerasta.security.RegistrationForm;
 import com.beerasta.service.UserService;
+import com.beerasta.web.rest.errors.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.http.ResponseEntity;
@@ -30,12 +31,16 @@ public class RegistrationController {
     public ResponseEntity<Object> registration(@RequestBody RegistrationForm form) {
         User user = form.toUser(passwordEncoder);
         log.info(user.toString());
-        if (userService.findByUsername(user.getUsername()) != null) {
+        try {
+            userService.findByUsername(user.getUsername());
             return ResponseEntity.badRequest().build();
         }
-        User save = userService.save(user);
-        log.info(save.toString());
-        return ResponseEntity.ok(save);
+        catch (NotFoundException e) {
+            User save = userService.save(user);
+            log.info(save.toString());
+            return ResponseEntity.ok(save);
+        }
+
     }
 
 }
