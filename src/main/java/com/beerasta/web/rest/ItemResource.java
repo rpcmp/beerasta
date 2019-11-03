@@ -47,13 +47,4 @@ public class ItemResource {
         return ResponseEntity.ok(itemService.addItem(item));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteItem(@PathVariable("id") Long id,
-                                             @AuthenticationPrincipal UserDetails userDetails) throws NotFoundException {
-        User user = userService.findByUsername(userDetails.getUsername());
-        Item item = itemService.deleteItem(id, user);
-        log.info(item.toString());
-        return ResponseEntity.ok(item);
-    }
-
 }

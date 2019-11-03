@@ -35,9 +35,4 @@ public class ItemService {
                 .orElseThrow(() -> new NotFoundException("No item with id " + id));
     }
 
-    public Item deleteItem(Long id,
-                           User user) {
-        return itemRepository.deleteByIdAndUser(id, user);
-    }
-
 }
