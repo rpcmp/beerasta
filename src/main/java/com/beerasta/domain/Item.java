@@ -42,8 +42,10 @@ public class Item implements Serializable {
     private String time;
 
     @ManyToOne
+    @JoinColumn(name = "users_id")
     private User owner;
 
     @ManyToMany
+    @JoinColumn(name = "users_id")
     private List<User> visitors;
 }
