@@ -40,7 +40,6 @@ public class Item implements Serializable {
     private String time;
 
     @ManyToOne
-    @JoinColumn(name = "owner_user")
     private User owner;
 
     @ManyToMany

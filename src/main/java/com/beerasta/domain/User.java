@@ -42,7 +42,7 @@ public class User implements Serializable {
 //    @JoinColumn(name = "items", referencedColumnName = "id")
     private List<Item> personalItems = new ArrayList<>();
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "visitors")
 //    @JoinColumn(name = "items", referencedColumnName = "id")
     private List<Item> bookedItems = new ArrayList<>();
 
