@@ -38,7 +38,7 @@ public class User implements Serializable {
 
     private final String password;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "owner")
 //    @JoinColumn(name = "items", referencedColumnName = "id")
     private List<Item> personalItems = new ArrayList<>();
 
