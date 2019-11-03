@@ -1,5 +1,6 @@
 package com.beerasta.web.rest;
 
+import com.beerasta.domain.Item;
 import com.beerasta.domain.User;
 import com.beerasta.service.UserService;
 import com.beerasta.web.rest.errors.NotFoundException;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -67,10 +69,10 @@ public class UserResource {
 
     @PutMapping("/personal")
     public ResponseEntity<Object> addPersonalItem(@AuthenticationPrincipal UserDetails userDetails,
-                                                  @RequestParam Long itemId) throws NotFoundException {
+                                                  @RequestBody Item item) throws NotFoundException {
         User user = userService.findByUsername(userDetails.getUsername());
         log.info(user.toString());
-        User result = userService.addPersonalItem(user, itemId);
+        User result = userService.addPersonalItem(user, item);
         log.info(result.toString());
         return ResponseEntity.ok(result);
     }

@@ -66,9 +66,8 @@ public class UserService {
         return usersRepository.save(user);
     }
 
-    public User addPersonalItem(User user, Long itemId) {
-        Item item = itemService.getItemById(itemId);
-        log.info(item.toString());
+    public User addPersonalItem(User user, Item item) {
+        itemService.addItem(item);
         List<Item> personalItems = user.getPersonalItems();
         personalItems.add(item);
         user.setPersonalItems(personalItems);

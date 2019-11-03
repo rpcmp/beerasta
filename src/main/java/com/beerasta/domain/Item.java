@@ -26,24 +26,16 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users", referencedColumnName = "id")
-    private User user;
+    @Column(name = "address")
+    private String address;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "min")
+    private Integer min;
 
-    @Column(name = "people_count")
-    private Integer peopleCount;
+    @Column(name = "max")
+    private Integer max;
 
     @Column(name = "time")
     private String time;
-
-    @Column(name = "level_alco")
-    private Integer levelAlco;
-
-    @Column(name = "money")
-    private Integer money;
 
 }

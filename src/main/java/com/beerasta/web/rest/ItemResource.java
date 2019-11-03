@@ -47,14 +47,6 @@ public class ItemResource {
         return ResponseEntity.ok(itemService.addItem(item));
     }
 
-    @GetMapping("/list/by-user")
-    public ResponseEntity<Object> getAllByUser(@AuthenticationPrincipal UserDetails userDetails) throws NotFoundException {
-        User user = userService.findByUsername(userDetails.getUsername());
-        List<Item> items = itemService.getAllByUserId(user);
-        log.info(items.stream().map(Item::toString).collect(Collectors.joining(", ")));
-        return ResponseEntity.ok(items);
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteItem(@PathVariable("id") Long id,
                                              @AuthenticationPrincipal UserDetails userDetails) throws NotFoundException {

@@ -30,10 +30,6 @@ public class ItemService {
         return itemRepository.save(item);
     }
 
-    public List<Item> getAllByUserId(User user) throws NotFoundException {
-        return itemRepository.findByUser(user);
-    }
-
     public Item getItemById(Long id) {
         return itemRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("No item with id " + id));
