@@ -42,35 +42,27 @@ public class UserService {
     public User deleteBookedItem(User user, Long itemId) throws NotFoundException {
         Item item = itemService.getItemById(itemId);
         log.info(item.toString());
-        List<Item> bookedItems = user.getBookedItems();
-        bookedItems.remove(item);
-        user.setBookedItems(bookedItems);
+        user.getBookedItems().remove(item);
         return usersRepository.save(user);
     }
 
     public User deletePersonalItem(User user, Long itemId) throws NotFoundException {
         Item item = itemService.getItemById(itemId);
         log.info(item.toString());
-        List<Item> personalItems = user.getPersonalItems();
-        personalItems.remove(item);
-        user.setPersonalItems(personalItems);
+        user.getPersonalItems().remove(item);
         return usersRepository.save(user);
     }
 
     public User addBookedItem(User user, Long itemId) {
         Item item = itemService.getItemById(itemId);
         log.info(item.toString());
-        List<Item> bookedItems = user.getBookedItems();
-        bookedItems.add(item);
-        user.setBookedItems(bookedItems);
+        user.getBookedItems().add(item);
         return usersRepository.save(user);
     }
 
     public User addPersonalItem(User user, Item item) {
         itemService.addItem(item);
-        List<Item> personalItems = user.getPersonalItems();
-        personalItems.add(item);
-        user.setPersonalItems(personalItems);
+        user.getPersonalItems().add(item);
         return usersRepository.save(user);
     }
 }
