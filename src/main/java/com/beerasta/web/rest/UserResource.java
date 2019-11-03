@@ -25,11 +25,11 @@ public class UserResource {
 
     private final UserService userService;
 
-  /*  @GetMapping("/booked")
+    @GetMapping("/booked")
     public ResponseEntity<Object> getBookedItems(@RequestParam("username") String username) throws NotFoundException {
         return ResponseEntity.ok(userService.getBookedItems(username));
     }
-
+/*
     @GetMapping("/personal")
     public ResponseEntity<Object> getPersonalItems(@RequestParam("username") String username) throws NotFoundException {
         return ResponseEntity.ok(userService.getPersonalItems(username));
@@ -57,7 +57,7 @@ public class UserResource {
 
     @PostMapping("/booked")
     public ResponseEntity<Object> addBookedItem(@RequestParam("username") String username,
-                                                @RequestParam Long itemId) throws NotFoundException {
+                                                @RequestParam("itemId") Long itemId) throws NotFoundException {
         User user = userService.findByUsername(username);
         log.info(user.toString());
         User result = userService.addBookedItem(user, itemId);

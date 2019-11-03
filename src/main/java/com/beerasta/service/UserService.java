@@ -8,7 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -27,12 +29,18 @@ public class UserService {
         return usersRepository.save(user);
     }
 
-/*    public List<Item> getBookedItems(String userName) throws NotFoundException {
+    public List<Item> getBookedItems(String userName) throws NotFoundException {
         User user = findByUsername(userName);
         log.info(user.toString());
-        return user.getBookedItems();
+        List<Item> result = new ArrayList<>();
+        itemService.getAllItemsByUser().forEach(i -> {
+           if (i.getVisitors().stream().anyMatch(v -> v.equals(user))) {
+               result.add(i);
+           }
+        });
+        return result;
     }
-
+/*
     public List<Item> getPersonalItems(String userName) throws NotFoundException {
         User user = findByUsername(userName);
         log.info(user.toString());

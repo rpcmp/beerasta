@@ -26,6 +26,10 @@ public class ItemService {
         return itemRepository.findAll(itemSpecification);
     }
 
+    public List<Item> getAllItemsByUser() {
+        return itemRepository.findAll();
+    }
+
     public Item addItem(Item item) {
         return itemRepository.save(item);
     }
