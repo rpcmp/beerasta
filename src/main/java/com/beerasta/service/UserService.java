@@ -27,7 +27,7 @@ public class UserService {
         return usersRepository.save(user);
     }
 
-    public List<Item> getBookedItems(String userName) throws NotFoundException {
+/*    public List<Item> getBookedItems(String userName) throws NotFoundException {
         User user = findByUsername(userName);
         log.info(user.toString());
         return user.getBookedItems();
@@ -51,7 +51,7 @@ public class UserService {
         log.info(item.toString());
         user.getPersonalItems().remove(item);
         return usersRepository.save(user);
-    }
+    }*/
 
     public User addBookedItem(User user, Long itemId) {
         Item item = itemService.getItemById(itemId);

@@ -25,7 +25,7 @@ public class UserResource {
 
     private final UserService userService;
 
-    @GetMapping("/booked")
+  /*  @GetMapping("/booked")
     public ResponseEntity<Object> getBookedItems(@RequestParam("username") String username) throws NotFoundException {
         return ResponseEntity.ok(userService.getBookedItems(username));
     }
@@ -53,7 +53,7 @@ public class UserResource {
         User result = userService.deletePersonalItem(user, itemId);
         log.info(result.toString());
         return ResponseEntity.ok(result);
-    }
+    }*/
 
     @PostMapping("/booked")
     public ResponseEntity<Object> addBookedItem(@RequestParam("username") String username,
