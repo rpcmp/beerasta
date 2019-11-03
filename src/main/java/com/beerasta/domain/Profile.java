@@ -16,7 +16,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "users")
+@Table(name = "profiles")
 @ToString
 @EqualsAndHashCode
 public class Profile {

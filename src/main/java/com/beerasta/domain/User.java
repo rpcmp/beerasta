@@ -17,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -38,11 +39,11 @@ public class User implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "items", referencedColumnName = "id")
-    private List<Item> personalItems;
+    private List<Item> personalItems = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "items", referencedColumnName = "id")
-    private List<Item> bookedItems;
+    private List<Item> bookedItems = new ArrayList<>();
 
     public void setPersonalItem(Item item) {
         personalItems.add(item);
