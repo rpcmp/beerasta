@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,7 +58,7 @@ public class UserResource {
         return ResponseEntity.ok(result);
     }
 
-    @PutMapping("/booked")
+    @PostMapping("/booked")
     public ResponseEntity<Object> addBookedItem(@AuthenticationPrincipal UserDetails userDetails,
                                                 @RequestParam Long itemId) throws NotFoundException {
         User user = userService.findByUsername(userDetails.getUsername());
@@ -67,7 +68,7 @@ public class UserResource {
         return ResponseEntity.ok(result);
     }
 
-    @PutMapping("/personal")
+    @PostMapping("/personal")
     public ResponseEntity<Object> addPersonalItem(@AuthenticationPrincipal UserDetails userDetails,
                                                   @RequestBody Item item) throws NotFoundException {
         User user = userService.findByUsername(userDetails.getUsername());
