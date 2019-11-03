@@ -28,7 +28,7 @@ public class Item {
 
     @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users", referencedColumnName = "username")
+    @JoinColumn(name = "users", referencedColumnName = "id")
     private User user;
 
     @Column(name = "name")
