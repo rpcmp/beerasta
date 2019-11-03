@@ -1,6 +1,7 @@
 package com.beerasta.web.rest;
 
 import com.beerasta.domain.Item;
+import com.beerasta.domain.User;
 import com.beerasta.service.ItemService;
 import com.beerasta.service.UserService;
 import lombok.AllArgsConstructor;
@@ -30,8 +31,11 @@ public class ItemResource {
     @GetMapping("/list")
     public ResponseEntity<Object> getAllItems(@RequestParam(value = "name", required = false) String name,
                                               @RequestParam(value = "levelAlco", required = false) Integer levelAlco,
-                                              @RequestParam(value = "time", required = false) String time) {
-        List<Item> items = itemService.getAllItems(name, levelAlco, time);
+                                              @RequestParam(value = "time", required = false) String time,
+                                              @RequestParam("username") String username) {
+        User user = userService.findByUsername(username);
+        log.info(user.toString());
+        List<Item> items = itemService.getAllItems(name, levelAlco, time, user);
         log.info(items.stream().map(Item::toString).collect(Collectors.joining(", ")));
         return ResponseEntity.ok(items);
     }
