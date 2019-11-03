@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -37,20 +38,12 @@ public class User implements Serializable {
 
     private final String password;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "items", referencedColumnName = "id")
+    @OneToMany(mappedBy = "user")
+//    @JoinColumn(name = "items", referencedColumnName = "id")
     private List<Item> personalItems = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "items", referencedColumnName = "id")
+    @ManyToMany
+//    @JoinColumn(name = "items", referencedColumnName = "id")
     private List<Item> bookedItems = new ArrayList<>();
-
-    public void setPersonalItem(Item item) {
-        personalItems.add(item);
-    }
-
-    public void setBookedItem(Item item) {
-        bookedItems.add(item);
-    }
 
 }
