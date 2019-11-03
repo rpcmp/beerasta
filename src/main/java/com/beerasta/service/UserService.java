@@ -58,14 +58,12 @@ public class UserService {
         item.getVisitors().add(user);
         log.info(item.toString());
         itemService.addItem(item);
-        user.getBookedItems().add(item);
-        return usersRepository.save(user);
+        return user;
     }
 
     public User addPersonalItem(User user, Item item) {
         item.setOwner(user);
         itemService.addItem(item);
-        user.getPersonalItems().add(item);
-        return usersRepository.save(user);
+        return user;
     }
 }
