@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Slf4j
 @Controller
 @AllArgsConstructor
-@CrossOrigin
 @RequestMapping("/user")
 public class UserResource {
 

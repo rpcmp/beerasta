@@ -21,7 +21,6 @@ import java.util.stream.Collectors;
 @Slf4j
 @Controller
 @AllArgsConstructor
-@CrossOrigin
 @RequestMapping("/item")
 public class ItemResource {
 

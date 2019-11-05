@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Slf4j
 @Controller
-@CrossOrigin
 @AllArgsConstructor
 public class RegistrationController {
 
