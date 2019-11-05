@@ -2,4 +2,5 @@
 /target
 /src/RPC/build
 /src/RPC/node
+/src/RPC/node_modules
 *.iml

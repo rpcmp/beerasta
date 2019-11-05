@@ -1,0 +1,79 @@
+$bottun-color: #00A3C0;
+$bottum-color-active: #FFD400;
+
+.items {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin: auto;
+
+  .item {
+    width: 200px;
+    margin: 25px;
+    padding: 15px 0 15px 0;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+
+    .address {
+      text-align: center;
+      font-style: bold;
+      font-size: 16pt;
+      height: 50px;
+      margin: 10px 0 10px 0;
+    }
+
+    .alco {
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: 30px;
+        height: 35px;
+      }
+    }
+
+    .people,
+    .time {
+      height: 20px;
+      margin: 0 25px 0 25px;
+
+      font-style: medium;
+      text-align: left;
+    }
+
+    .time {
+      display: flex;
+
+      margin-bottom: 25px;
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .accept {
+      display: block;
+      margin: auto;
+      width: 180px;
+      // height: 35px;
+      height: 40px;
+
+      border: 1px solid black;
+      border-radius: 5px;
+
+      background-color: $bottun-color
+    }
+
+    .accept:hover {
+      background-color: $bottum-color-active
+    }
+  }
+}
