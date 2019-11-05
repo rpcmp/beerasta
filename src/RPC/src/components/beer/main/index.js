@@ -8,7 +8,7 @@ function Items(props) {
         if (localStorage.getItem("user") == null) {
             window.location = "/#/login";
         } else {
-            fetch(`https://beerasta.herokuapp.com/item/list?username=${localStorage.getItem("user")}`)
+            fetch(`/api/item/list?username=${localStorage.getItem("user")}`)
                 .then(res => {
                     if (res.ok) {
                         return res.json()

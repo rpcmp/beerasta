@@ -10,7 +10,7 @@ class Item extends React.Component {
     }
 
     book(){
-        fetch(`https://beerasta.herokuapp.com/user/booked?username=${localStorage.getItem("user")}&itemId=${this.props.id}`,{
+        fetch(`/api/user/booked?username=${localStorage.getItem("user")}&itemId=${this.props.id}`,{
             method: 'POST'
         }).then(res => {
             if(res.ok){
