@@ -1,0 +1,65 @@
+$bottun-color: #00a3c0;
+$bottum-color-active: #ffd400;
+
+.add {
+    width: 1000px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+
+    .title {
+        margin: 20px 0 5px 0;
+        text-align: center;
+    }
+
+    .form {
+        display: flex;
+        align-items: flex-end;
+
+        padding-bottom: 20px; 
+
+        .item {
+            width: 200px;
+
+            text-align: center;
+
+            .input {
+                height: 40px;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 0 5px 0 15px;
+                box-sizing: border-box;
+            }
+
+            .input-text {
+                width: 150px;
+            }
+
+            .half-container {
+                display: flex;
+                justify-content: space-around;
+
+                .input-half {
+                    width: 75px;
+                }
+            }
+
+            .input-submit {
+                height: 40px;
+                width: 150px;
+                // box-sizing: content-box;
+                
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: $bottun-color;
+            }
+
+            .input-submit:hover {
+                background-color: $bottum-color-active;
+            }
+        }
+    }
+}

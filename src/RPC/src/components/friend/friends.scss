@@ -1,0 +1,64 @@
+.friends {
+  font-family: "Roboto", sans-serif;
+
+  .current-user {
+    width: 600px;
+    margin: 25px auto;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: white;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .userpic {
+    height: 100px;
+  }
+
+  .info {
+    .name {
+      text-align: center;
+      line-height: 25px;
+    }
+  }
+
+  .all-users {
+    width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: auto;
+
+    .friend {
+      width: 250px;
+      border: 1px solid black;
+      border-radius: 5px;
+      margin-top: 25px;
+      // margin: 25px;
+
+      background-color: white;
+
+      .name {
+        text-align: center;
+      }
+
+      .userpic {
+        display: block;
+        height: 150px;
+        margin: auto;
+      }
+
+      .btn {
+        display: block;
+        margin: 25px auto 25px auto;
+        width: 200px;
+        height: 30px;
+        border: 1px solid black;
+        border-radius: 5px;
+
+      }
+    }
+  }
+}

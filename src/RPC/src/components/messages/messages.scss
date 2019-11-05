@@ -1,0 +1,39 @@
+.messages {
+  width: 800px;
+  margin: auto;
+
+  .new-message {
+    width: 800px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: white;
+
+    .msg-address {
+      display: block;
+      padding: 5px 5px 15px 5px;
+      margin: 15px;
+      height: 10px;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+
+    .msg-text {
+      display: block;
+      padding: 5px 5px 15px 5px;
+      margin: 15px auto 15px auto;
+      height: 100px;
+      width: 760px;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+
+    .btn {
+      height: 50px;
+      padding: 15px;
+      margin: 0 15px 15px 15px;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+  }
+}
