@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Controller
 @AllArgsConstructor
-@RequestMapping("/item")
+@RequestMapping("/api/item")
 public class ItemResource {
 
     private final ItemService itemService;

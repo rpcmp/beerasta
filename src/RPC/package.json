@@ -2,6 +2,7 @@
   "name": "beerasta",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080/api/",
   "dependencies": {
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
