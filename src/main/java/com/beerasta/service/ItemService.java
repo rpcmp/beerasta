@@ -6,12 +6,13 @@ import com.beerasta.repository.ItemRepository;
 import com.beerasta.repository.specificaion.ItemSpecification;
 import com.beerasta.web.rest.errors.NotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Slf4j
 @AllArgsConstructor
 @Service
 public class ItemService {
@@ -37,10 +38,6 @@ public class ItemService {
         return items;
     }
 
-    public List<Item> getAllItemsByUser() {
-        return itemRepository.findAll();
-    }
-
     public Item addItem(Item item) {
         return itemRepository.save(item);
     }
@@ -48,6 +45,56 @@ public class ItemService {
     public Item getItemById(Long id) {
         return itemRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("No item with id " + id));
+    }
+
+    public Item deleteBookedItem(User user,
+                                 Long itemId) throws NotFoundException {
+        Item item = itemRepository.findOne(itemId);
+        log.info(item.toString());
+        item.getVisitors().remove(user);
+        itemRepository.save(item);
+        return item;
+    }
+
+    public boolean deletePersonalItem(User user) throws NotFoundException {
+        return itemRepository.removeByOwner(user);
+    }
+
+    public List<Item> getBookedItems(User user) throws NotFoundException {
+        log.info(user.toString());
+        List<Item> result = new ArrayList<>();
+        itemRepository.findAll().forEach(i -> {
+            if (i.getVisitors().stream().anyMatch(v -> v.equals(user))) {
+                result.add(i);
+            }
+        });
+        return result;
+    }
+
+    public List<Item> getPersonalItems(User user) throws NotFoundException {
+        log.info(user.toString());
+        List<Item> result = new ArrayList<>();
+        itemRepository.findAll().forEach(i -> {
+            if (i.getOwner().equals(user)) {
+                result.add(i);
+            }
+        });
+        return result;
+    }
+
+    public Item addBookedItem(User user,
+                              Long itemId) {
+        Item item = itemRepository.findOne(itemId);
+        item.getVisitors().add(user);
+        log.info(item.toString());
+        itemRepository.save(item);
+        return item;
+    }
+
+    public Item addPersonalItem(User user,
+                                Item item) {
+        item.setOwner(user);
+        return itemRepository.save(item);
     }
 
 }
