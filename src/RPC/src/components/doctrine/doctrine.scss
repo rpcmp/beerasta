@@ -31,7 +31,6 @@
     }
 
     .title {
-      font-family: MyFont, serif;
       display: block;
       width: 800px;
       height: 50px;
@@ -48,7 +47,7 @@
     }
 
     .title:focus {
-        background-color: #FFD400;
+      background-color: #FFD400;
     }
 
     .title:focus + .text,
