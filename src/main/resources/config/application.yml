@@ -1,12 +1,13 @@
 server:
     port: ${PORT:8080}
+#    context-path: /api
 spring:
     application:
         name: beerasta
     datasource:
-        url: jdbc:postgresql://ec2-54-247-72-30.eu-west-1.compute.amazonaws.com:5432/df9hod1l7grbd3?sslmode=require
-        username: qbenktgghqeplq
-        password: a0448c9fa846ecc304461e76c081cbb8282f9bdde606c13e5094393186a9b7bf
+        url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/beerasta}
+        username: ${SPRING_DATASOURCE_USERNAME:postgres}
+        password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     jpa:
         database: postgresql
         database-platform: org.hibernate.dialect.PostgreSQLDialect

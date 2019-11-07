@@ -21,7 +21,7 @@ class Friends extends React.Component {
         if (localStorage.getItem("user") == null) {
            this.props.history.push("/login");
         } else {
-            fetch(`https://beerasta.herokuapp.com/user/booked?username=${localStorage.getItem("user")}`)
+            fetch(`/api/user/booked?username=${localStorage.getItem("user")}`)
                 .then(res => {
                     return res.json()
                 })

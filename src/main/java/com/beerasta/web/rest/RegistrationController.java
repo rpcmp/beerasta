@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Slf4j
 @Controller
-@CrossOrigin
 @AllArgsConstructor
 public class RegistrationController {
 
     private final UserService userService;
 
-    @PostMapping("/registration")
+    @PostMapping("/api/registration")
     public ResponseEntity<Object> registration(@RequestBody RegistrationForm form) {
         User user = form.toUser();
         log.info(user.toString());
@@ -35,7 +34,7 @@ public class RegistrationController {
 
     }
 
-    @PostMapping("/login")
+    @PostMapping("/api/login")
     public ResponseEntity<User> loadUserByUsername(String username) throws NotFoundException {
         User user = userService.findByUsername(username);
         log.info(user.toString());

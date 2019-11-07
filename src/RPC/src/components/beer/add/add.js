@@ -43,7 +43,7 @@ class Add extends React.Component {
         let body = JSON.stringify(this.state)
         console.table(this.state)
 
-        fetch("https://beerasta.herokuapp.com/user/personal?username=" + localStorage.getItem("user"), {
+        fetch("/api/user/personal?username=" + localStorage.getItem("user"), {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

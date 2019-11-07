@@ -48,7 +48,7 @@ class Register extends React.Component {
     register() {
         let body = { username: this.state.username, password: this.state.password }
 
-        fetch("https://beerasta.herokuapp.com/registration", {
+        fetch("/api/registration", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
