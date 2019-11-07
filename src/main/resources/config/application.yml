@@ -1,6 +1,6 @@
 server:
     port: ${PORT:8080}
-#    context-path: /api чисто тест ебат
+#    context-path: /api чисто тест ебат 2
 spring:
     application:
         name: beerasta
