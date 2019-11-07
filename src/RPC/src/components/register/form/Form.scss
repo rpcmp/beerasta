@@ -1,0 +1,59 @@
+$bottun-color: #00a3c0;
+$bottum-color-active: #ffd400;
+
+.form {
+    width: 400px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: white;
+
+    &__title {
+        margin: 20px;
+        font-size: 16pt;
+        text-align: center;
+    }
+
+    &__input {
+        width: 300px;
+        height: 25px;
+        display: block;
+        margin: 20px auto;
+        padding: 10px 5px 10px 15px;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    &__input:focus {
+        border: 1px solid $bottun-color;
+    }
+
+    &__error {
+        width: 300px;
+        display: none;
+        padding: 10px;
+        margin: 0 auto 20px auto;
+        border-radius: 5px;
+
+        background-color: red;
+    }
+
+    &__btn {
+        height: 50px;
+        width: 125px;
+        display: block;
+        margin: 20px auto;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-sizing: border-box;
+
+        font-size: 12pt;
+        line-height: 16px;
+        background-color: $bottun-color;
+    }
+
+    &__btn:hover {
+        background-color: $bottum-color-active;
+    }
+}

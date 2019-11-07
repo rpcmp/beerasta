@@ -1,0 +1,25 @@
+.search {
+    width: 800px;
+    margin: 25px auto;
+    
+    display: flex;
+    justify-content: space-between;
+
+    &__input {
+        height: 50px;
+        width: 575px;
+        padding-left: 15px;
+        box-sizing: border-box;
+
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    &__button {
+        height: 50px;
+        width: 200px;
+
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+}
