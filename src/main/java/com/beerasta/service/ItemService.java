@@ -56,8 +56,8 @@ public class ItemService {
         return item;
     }
 
-    public boolean deletePersonalItem(User user) throws NotFoundException {
-        return itemRepository.removeByOwner(user);
+    public Item deletePersonalItem(User user, Long itemId) throws NotFoundException {
+        return itemRepository.removeByOwnerAndId(user, itemId);
     }
 
     public List<Item> getBookedItems(User user) throws NotFoundException {

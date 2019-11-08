@@ -41,7 +41,7 @@ public class UserResource {
 
     @DeleteMapping("/booked")
     public ResponseEntity<Object> deleteBookedItem(@RequestParam("username") String username,
-                                                   @RequestParam Long itemId) throws NotFoundException {
+                                                   @RequestParam("itemId") Long itemId) throws NotFoundException {
         User user = userService.findByUsername(username);
         log.info(user.toString());
         Item result = itemService.deleteBookedItem(user, itemId);
@@ -50,10 +50,13 @@ public class UserResource {
     }
 
     @DeleteMapping("/personal")
-    public ResponseEntity<Object> deletePersonalItem(@RequestParam("username") String username) throws NotFoundException {
+    public ResponseEntity<Object> deletePersonalItem(@RequestParam("username") String username,
+                                                     @RequestParam("itemId") Long itemId) throws NotFoundException {
         User user = userService.findByUsername(username);
         log.info(user.toString());
-        return ResponseEntity.ok(itemService.deletePersonalItem(user));
+        Item result = itemService.deletePersonalItem(user, itemId);
+        log.info(result.toString());
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/booked")

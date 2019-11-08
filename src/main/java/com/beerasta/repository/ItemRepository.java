@@ -13,6 +13,6 @@ public interface ItemRepository extends JpaRepository<Item, Long>, JpaSpecificat
 
     Optional<Item> findById(Long id);
 
-    boolean removeByOwner(User user);
+    Item removeByOwnerAndId(User user, Long id);
 
 }
