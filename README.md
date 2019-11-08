@@ -8,7 +8,11 @@
 
 [**Maven**](https://maven.apache.org/)
 
+**PostgreSQL 9.6+**
+
 ## Build and run jar
+
+Create database `beerasta` on you local PostgreSQL DB with login\password: `postgres` and 5432 port
 
 In the project directory
 
