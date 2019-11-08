@@ -33,82 +33,85 @@ $bottun-color-exit: #F00431;
         font-family: "Roboto", sans-serif;
         font-size: 14pt;
     }
-}
 
-.userpic {
-    width: 250px;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 15px;
+    .userpic {
+        width: 250px;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 15px;
 
-    &__img {
-        width: 100%;
-        display: block;
-    }
-}
-
-.list {
-    width: 500px;
-
-    &__item {
-        margin-bottom: 15px;
-    }
-}
-
-.change {
-    &__input {
-        display: block;
-        margin-top: 15px;
+        &__img {
+            width: 100%;
+            display: block;
+        }
     }
 
-    &__btn {
-        display: block;
-        margin-top: 10px;
+    .list {
+        width: 500px;
+
+        &__item {
+            margin-bottom: 15px;
+        }
     }
 
-    &__text_area {
-        max-width: 350px;
-        min-width: 350px;
-    }
-}
+    .change {
+        &__input {
+            display: block;
+            padding-left: 15px;
+            margin-top: 15px;
+        }
 
-.input {
-    width: 350px;
-    height: 35px;
-    padding-left: 15px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-.text_area {
-    padding: 5px 0 0 15px;
-    border-radius: 5px;
-    border: 1px solid black;
-}
-
-.action {
-    width: 370px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn {
-    height: 40px;
-    border: 1px solid black;
-    border-radius: 5px;
-
-    &-save {
-        width: 100px;
+        &__btn {
+            display: block;
+            margin-top: 10px;
+        }
     }
 
-    &-save_all {
-        width: 200px;
-        background-color: $bottun-color-save-all;
+    .input {
+        height: 35px;
+
+        border-radius: 5px;
+        border: 1px solid black;
+
+        &_text {
+            width: 350px;
+        }
+
+        &_area {
+            max-width: 350px;
+            min-width: 350px;
+        }
     }
 
-    &-exit {
-        width: 100px;
-        background-color: $bottun-color-exit;
+    .text_area {
+        padding: 5px 0 0 15px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    .action {
+        width: 370px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn {
+        height: 40px;
+        border: 1px solid black;
+        border-radius: 5px;
+
+        &-save {
+            width: 100px;
+        }
+
+        &-save_all {
+            width: 200px;
+            background-color: $bottun-color-save-all;
+        }
+
+        &-exit {
+            width: 100px;
+            background-color: $bottun-color-exit;
+        }
     }
 }
-

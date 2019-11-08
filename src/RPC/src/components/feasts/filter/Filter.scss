@@ -14,65 +14,60 @@ $bottum-color-active: #ffd400;
   justify-content: space-around;
   align-items: center;
 
-  .item {
+  p {
+    margin: 10px;
+  }
+
+  &__title {
+    margin: 20px;
+  }
+
+  &__item {
     width: 100%;
     margin: 5px;
     border-bottom: 1px solid black;
 
     text-align: center;
-
-    .title {
-      margin: 20px;
-    }
-
-    p {
-      margin: 10px;
-    }
-
-    .input {
-      height: 40px;
-      margin: 15px;
-      padding: 0 5px 0 15px;
-      border: 1px solid black;
-      box-sizing: border-box;
-      border-radius: 5px;
-    }
-
-    .input-text {
-      width: 180px;
-    }
-
-    .half-container {
-      width: 150px;
-      margin: auto;
-
-      display: flex;
-      justify-content: space-around;
-
-      .input-half {
-        width: 75px;
-      }
-    }
-
-    .submit {
-      width: 180px;
-      height: 40px;
-      margin: 15px;      
-      border: 1px solid black;
-      border-radius: 5px;
-
-      background-color: $bottun-color;
-    }
-  
-    .submit:hover {
-      background-color: $bottum-color-active;
-      border: 1px solid $bottum-color-active;
-    }
   }
 
-  .item:last-child {
+  &__input {
+    margin: 15px;
+  }
+
+  &__item:last-child {
     border-bottom: 0;
   }
 
-
+  .input {
+    height: 40px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding-left: 15px;
+    
+    &_text {
+      width: 180px;
+      padding-left: 15px;
+    }
+  
+    &_half {
+      width: 75px;
+     
+    }
+  }
+  
+  .btn {
+    width: 150px;
+    height: 40px;
+    margin: 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+  
+    background-color: $bottun-color;
+  }
+  
+  .btn:hover {
+    background-color: $bottum-color-active;
+  }
 }
+

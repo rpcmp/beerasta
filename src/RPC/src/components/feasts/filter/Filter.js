@@ -4,26 +4,24 @@ import './Filter.scss';
 function Filter() {
     return (
         <div className="filter">
-            <div className="item">
-                <h2 className="title">Искать пирушку</h2>
+            <div className="filter__item">
+                <h2 className="filter__title">Искать пирушку</h2>
             </div>
-            <div className="item">
+            <div className="filter__item">
                 <p>Адрес</p>
-                <input className="input input-text"></input>
+                <input className="filter__input input input_text" placeholder="Адрес"></input>
             </div>
-            <div className="item">
+            <div className="filter__item">
                 <p>Количество людей</p>
-                <div className="half-container">
-                    <input className="input input-half" placeholder="Min"></input>
-                    <input className="input input-half" placeholder="Max"></input>
-                </div>
+                <input className="filter__input input input_half" placeholder="Min"></input>
+                <input className="filter__input input input_half" placeholder="Max"></input>
             </div>
-            <div className="item">
+            <div className="filter__item">
                 <p>Время начала</p>
-                <input type="time" className="input input-time"></input>
+                <input type="time" className="filter__input input input_time"></input>
             </div>
-            <div className="item">
-                <button className="submit">Найти</button>
+            <div className="filter__item">
+                <button className="filter__btn btn">Найти</button>
             </div>
         </div>
     );

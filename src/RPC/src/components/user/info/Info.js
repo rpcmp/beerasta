@@ -35,7 +35,7 @@ class Info extends React.Component {
                         <p className="info__text">{this.state.user.name} Имя фамилия</p>
                         <div className="info__change change">
 
-                            <input className="input change__input" placeholder="Введите имя"></input>
+                            <input className="input input_text change__input" placeholder="Введите имя"></input>
                             <button className="btn btn-save change__btn">Принять</button>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ class Info extends React.Component {
                         <p className="info__title">Никнейм</p>
                         <p className="info__text">{this.state.nickname} Никнейм</p>
                         <div className="info__change change">
-                            <input className="input change__input" placeholder="Введите никнейм"></input>
+                            <input className="input input_text change__input" placeholder="Введите никнейм"></input>
                             <button className="btn btn-save change__btn">Принять</button>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ class Info extends React.Component {
                         <p className="info__title">Email</p>
                         <p className="info__text">{this.state.email} user@example.com</p>
                         <div className="info__change change">
-                            <input className="input change__input" placeholder="Введите email"></input>
+                            <input className="input input_text change__input" placeholder="Введите email"></input>
                             <button className="btn btn-save change__btn">Принять</button>
                         </div>
                     </div>
@@ -63,9 +63,9 @@ class Info extends React.Component {
                         <p className="info__title">Пароль</p>
                         <p className="info__text">*************</p>
                         <div className="info__change change">
-                            <input className="input change__input" placeholder="Введите старый пароль" type="password"></input>
-                            <input className="input change__input" placeholder="Введите новый пароль" type="password"></input>
-                            <input className="input change__input" placeholder="Подвердите пароль" type="password"></input>
+                            <input className="input input_text change__input" placeholder="Введите старый пароль" type="password"></input>
+                            <input className="input input_text change__input" placeholder="Введите новый пароль" type="password"></input>
+                            <input className="input input_text change__input" placeholder="Подвердите пароль" type="password"></input>
                             <button className="btn btn-save change__btn">Принять</button>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ class Info extends React.Component {
                         <p className="info__title">Обо мне</p>
                         <p className="info__text">{this.state.about}Злобный веган как нэйт диаз</p>
                         <div className="info__change change">
-                            <textarea className="text_area change__text_area" placeholder="Расскажите о себе..."></textarea>
+                            <textarea className="input input_area change__text" placeholder="Расскажите о себе..."></textarea>
                             <button className="btn btn-save change__btn">Принять</button>
                         </div>
                     </div>

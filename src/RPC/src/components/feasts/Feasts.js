@@ -1,5 +1,5 @@
 import React from 'react';
-import './Feasts.scss';
+import'./Feasts.scss';
 
 import Add from './add/Add';
 import Filter from './filter/Filter'
