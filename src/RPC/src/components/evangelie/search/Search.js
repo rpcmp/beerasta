@@ -1,11 +1,11 @@
 import React from 'react';
-import './Search.scss';
+import Styles from './Search.module.scss';
 
 function Search() {
     return (
-        <div className="search">
-            <input className="search__input"></input>
-            <button className="search__button">Найти</button>
+        <div className={Styles.search}>
+            <input className={Styles.search__input}></input>
+            <button className={Styles.search__btn}>Найти</button>
         </div>
     );
 }

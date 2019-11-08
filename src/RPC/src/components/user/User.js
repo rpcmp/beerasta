@@ -1,12 +1,12 @@
 import React from 'react';
-import './index.scss';
+import Styles from './User.module.scss';
 
 import Nav from './nav/Nav';
-import Info from './info/Info';
+import Info from './Settings/Settings';
 
 function User() {
     return (
-        <div className="user">
+        <div className={Styles.user}>
             <Nav />
             <Info />
         </div>

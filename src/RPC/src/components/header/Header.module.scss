@@ -13,15 +13,12 @@
         background-color: white;
         border-radius: 5px;
     }
-
-    &__menu {
-        margin: auto;
-        height: 100%;   
-    }
 }
 
 .menu {
     width: 600px;
+    margin: auto;
+    height: 100%;   
     display: flex;
 
     &__item {

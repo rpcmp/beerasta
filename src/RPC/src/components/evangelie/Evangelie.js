@@ -2,13 +2,15 @@ import React from 'react';
 import './Evangelie.scss';
 
 import Search from './search/Search';
-import Text from './text/Text';
+import Chapter from './chapter/Chapter';
 
 function Evangelie() {
     return (
         <div className="doctrine">
             <Search />
-            <Text />
+            <Chapter 
+            title="test title"
+            text="test text" />
         </div>
     );
 } 

@@ -1,0 +1,106 @@
+$bottun-color: #00a3c0;
+$bottun-color-active: #ffd400;
+$bottun-color-save-all: #179744;
+$bottun-color-exit: #F00431;
+
+.info {
+    width: 750px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 25px auto;
+
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+}
+
+.userpic {
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+
+    margin: 25px 25px 0;
+    align-self: flex-start;
+
+    &_img {
+        width: 100%;
+        display: block;
+    }
+}
+
+.list {
+    width: 500px;
+    margin: 25px 0 25px 25px;
+}
+
+.item {
+    margin-bottom: 15px;
+
+    &_title {
+        margin-top: 0;
+        font-family: "Roboto", sans-serif;
+        font-size: 16pt;
+        font-weight: bold;
+    }
+
+    &_text {
+        font-family: "Roboto", sans-serif;
+        font-size: 14pt;
+    }
+}
+
+
+.btn {
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    &_save {
+        @extend .btn;
+        width: 100px;
+        display: block;
+        margin-top: 10px;
+    }
+
+    &_save_all {
+        @extend .btn;
+        width: 200px;
+        background-color: $bottun-color-save-all;
+    }
+
+    &_exit {
+        @extend .btn;
+        width: 100px;
+        background-color: $bottun-color-exit;
+    }
+}
+
+.input {
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid black;
+
+    &_text {
+        @extend .input;
+        display: block;
+        width: 350px;
+        padding-left: 15px;
+        margin-top: 15px;  
+    }
+
+    &_area {
+        @extend .input;
+        max-width: 350px;
+        min-width: 350px;
+        padding: 5px 0 0 15px;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+}
+
+.action {
+    width: 370px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-import './index.scss';
+import Styles from './Register.module.scss';
 
 import Form from './form/Form';
 
 function Register(props) {
    return (
-    <div className="register">
+    <div className={Styles.register}>
         <Form history={props.history}/>
     </div>
    );

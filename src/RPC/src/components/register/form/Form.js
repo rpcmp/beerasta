@@ -1,6 +1,5 @@
 import React from 'react';
-
-import './Form.scss';
+import Styles from './Form.module.scss';
 
 class Form extends React.Component {
     constructor(props) {
@@ -24,12 +23,12 @@ class Form extends React.Component {
 
     render() {
         return (
-            <div className="form">
-                <p className="form__title">Регистрация</p>
-                <input className="form__input" type="text" placeholder="Логин или email.." onInput={e => this.setUsername(e.target.value)}></input>
-                <input className="form__input" type="password" placeholder="Пароль" onInput={e => this.setPassword(e.target.value)}></input>
-                <p className="form__error" style={{ display: this.state.error.display }}>{this.state.error.text}</p>
-                <button className="form__btn" onClick={this.register}>Регистрация</button>
+            <div className={Styles.form}>
+                <p className={Styles.form__title}>Регистрация</p>
+                <input className={Styles.form__input} type="text" placeholder="Логин или email.." onInput={e => this.setUsername(e.target.value)}></input>
+                <input className={Styles.form__input} type="password" placeholder="Пароль" onInput={e => this.setPassword(e.target.value)}></input>
+                <p className={Styles.form__error} style={{ display: this.state.error.display }}>{this.state.error.text}</p>
+                <button className={Styles.form__btn} onClick={this.register}>Регистрация</button>
             </div>
         );
     }

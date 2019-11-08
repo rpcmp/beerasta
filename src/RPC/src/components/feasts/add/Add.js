@@ -1,5 +1,5 @@
 import React from 'react';
-import './Add.scss';
+import Styles from './Add.module.scss';
 
 class Add extends React.Component {
     constructor(props) {
@@ -19,27 +19,57 @@ class Add extends React.Component {
         this.sendItem = this.sendItem.bind(this)
     }
 
-    setAddress(address){
-        this.setState({address: address})
+    render() {
+        return (
+            <div className={Styles.add}>
+                <h2 className={Styles.title}>Устроить пирушку</h2>
+                <div className={Styles.form}>
+                    <div className={Styles.item}>
+                        <p>Адрес</p>
+                        <input className={Styles.input_text} onInput={e => this.setAddress(e.target.value)} placeholder="Адрес"></input>
+                    </div>
+                    <div className={Styles.item}>
+                        <p>Количество человек</p>
+                        <input className={Styles.input_half} placeholder="Min" type="number" onInput={e => this.setMin(e.target.value)}></input>
+                        <input className={Styles.input_half} placeholder="Max" type="number" onInput={e => this.setMax(e.target.value)}></input>
+                    </div>
+                    <div className={Styles.item}>
+                        <p>Описание</p>
+                        <input className={Styles.input_text} placeholder="Описание"></input>
+                    </div>
+                    <div className={Styles.item}>
+                        <p>Время начала</p>
+                        <input type="time" className={Styles.input_time} onInput={e => this.setTime(e.target.value)}></input>
+                    </div>
+                    <div className={Styles.item}>
+                        <button className={Styles.input_submit} onClick={this.sendItem}>Пируем</button>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
-    setMin(min){
-        this.setState({min: min})
+    setAddress(address) {
+        this.setState({ address: address })
     }
 
-    setMax(max){
-        this.setState({max: max})
+    setMin(min) {
+        this.setState({ min: min })
     }
 
-    setTime(time){
-        this.setState({time: time})
+    setMax(max) {
+        this.setState({ max: max })
+    }
+
+    setTime(time) {
+        this.setState({ time: time })
     }
 
     // https://beerasta.herokuapp.com/user/personal
     // PUT
     //{address, min, max, time}
 
-    sendItem(){
+    sendItem() {
         let body = JSON.stringify(this.state)
         console.table(this.state)
 
@@ -50,44 +80,10 @@ class Add extends React.Component {
             },
             body: body
         }).then(res => {
-            if (res.ok){
+            if (res.ok) {
                 document.location.reload(true)
             }
         })
-    }
-
-    render() {
-        return (
-            <div className="add">
-                <h2 className="title">Устроить пирушку</h2>
-
-                <div className="form">
-                    <div className="item">
-                        <p>Адрес</p>
-                        <input className="input input-text" onInput={e => this.setAddress(e.target.value)}></input>
-                    </div>
-                    <div className="item">
-                        <p>Количество человек</p>
-                        <div className="half-container">
-                            <input className="input input-half" placeholder="Min" type="number" onInput={e => this.setMin(e.target.value)}></input>
-                            <input className="input input-half" placeholder="Max" type="number" onInput={e => this.setMax(e.target.value)}></input>
-                        </div>
-
-                    </div>
-                    <div className="item">
-                        <p>Описание</p>
-                        <input className="input input-text"></input>
-                    </div>
-                    <div className="item">
-                        <p>Время начала</p>
-                        <input type="time" className="input" onInput={e => this.setTime(e.target.value)}></input>
-                    </div>
-                    <div className="item">
-                        <button className="input-submit" onClick={this.sendItem}>Пируем</button>
-                    </div>
-                </div>
-            </div>
-        )
     }
 }
 

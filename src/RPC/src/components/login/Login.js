@@ -1,12 +1,12 @@
 import React from 'react';
-import './index.scss';
+import Styles from './Login.module.scss';
 
 import Form from './form/Form';
 
 
 function Login(props) {
     return (
-        <div className="login">
+        <div className={Styles.login}>
             <Form history={props.history}/>
         </div>
     );

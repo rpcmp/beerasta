@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom"
-
-import './Form.scss';
+import Styles from './Form.module.scss';
 
 class Form extends React.Component {
     constructor(props) {
@@ -25,15 +24,16 @@ class Form extends React.Component {
     }
 
     render() {
+        console.log(Styles);
         return (
-            <div className="form">
-                <p className="form__title">Войти</p>
-                <input className="form__input" type="text" placeholder="Логин или email.." onInput={e => this.setUsername(e.target.value)}></input>
-                <input className="form__input" type="password" placeholder="Пароль" onInput={e => this.setPassword(e.target.value)}></input>
-                <p className="form__error" style={{ display: this.state.error.display }}>{this.state.error.text}</p>
-                <div className="form__action">
-                    <button className="form__btn" onClick={this.login}>Войти</button>
-                    <button className="form__btn" onClick={this.register}>Регистрация</button>
+            <div className={Styles.form}>
+                <p className={Styles.form__title}>Войти</p>
+                <input className={Styles.form__input} type="text" placeholder="Логин или email.." onInput={e => this.setUsername(e.target.value)}></input>
+                <input className={Styles.form__input} type="password" placeholder="Пароль" onInput={e => this.setPassword(e.target.value)}></input>
+                <p className={Styles.form__error} style={{ display: this.state.error.display }}>{this.state.error.text}</p>
+                <div className={Styles.form__action}>
+                    <button className={Styles.form__btn} onClick={this.login}>Войти</button>
+                    <button className={Styles.form__btn} onClick={this.register}>Регистрация</button>
                 </div>
             </div>
         );

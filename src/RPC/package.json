@@ -4,12 +4,13 @@
   "private": true,
   "proxy": "http://localhost:8080/api/",
   "dependencies": {
+    "http-proxy-middleware": "latest",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",
+    "react-css-modules": "^4.7.11",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0",
-    "http-proxy-middleware": "latest"
+    "react-scripts": "3.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

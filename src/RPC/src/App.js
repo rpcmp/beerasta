@@ -1,9 +1,9 @@
 import React from 'react';
 import {HashRouter, Route} from "react-router-dom";
 import Header from './components/header/Header';
-import Login from './components/login/index';
-import Register from './components/register/index';
-import User from './components/user/index';
+import Login from './components/login/Login';
+import Register from './components/register/Register';
+import User from './components/user/User';
 import Beer from './components/feasts/Feasts';
 import Friends from './components/friends/Friends';
 import Evangelie from './components/evangelie/Evangelie';

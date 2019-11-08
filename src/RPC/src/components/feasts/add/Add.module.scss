@@ -1,0 +1,64 @@
+$bottun-color: #00a3c0;
+$bottum-color-active: #ffd400;
+
+.add {
+    width: 1000px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title {
+    margin: 20px 0 5px 0;
+    text-align: center;
+}
+
+.form {
+    padding-bottom: 20px;
+
+    display: flex;
+    align-items: flex-end;
+}
+
+.item {
+    width: 200px;
+    text-align: center;
+}
+
+.input {
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+    &_text {
+        @extend .input;
+        width: 150px;
+        padding: 0 5px 0 15px;
+    }
+
+    &_half {
+        @extend .input;
+        width: 75px;
+        padding: 0 5px 0 15px;
+        margin: 0 10px 0 10px;
+    }
+
+    &_time {
+        @extend .input;
+        padding: 0 5px 0 15px;
+    }
+
+    &_submit {
+        @extend .input;
+        width: 150px;
+        background-color: $bottun-color;
+    }
+
+    &_submit:hover {
+        background-color: $bottum-color-active;
+    }
+}

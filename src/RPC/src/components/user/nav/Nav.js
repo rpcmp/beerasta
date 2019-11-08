@@ -1,19 +1,12 @@
 import React from 'react';
-import './Nav.scss';
+import Styles from './Nav.module.scss';
 
-// Общее, приватность, уведомления
 function Nav() {
     return (
-        <div className="nav">
-            <button disabled className="nav__btn nav-btn-active">
-                Аккаунт
-            </button>
-            <button className="nav__btn">
-                Приватность
-            </button>
-            <button className="nav__btn nav__btn-last">
-                Уведомления
-            </button>
+        <div className={Styles.nav}>
+            <button disabled className={Styles.btn}>Аккаунт</button>
+            <button className={Styles.btn}>Приватность</button>
+            <button className={Styles.btn_last}>Уведомления</button>
         </div>
     );
 }
