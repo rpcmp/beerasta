@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './FeastsList.scss';
+import Styles from './FeastsList.module.scss';
 
 import Feast from './feast/Feast';
 
@@ -22,12 +22,30 @@ function FeastsList(props) {
     }, []);
 
     return (
-        <div className="items">
-            {
-                items.map((val, num) => {
+        <div className={Styles.items}>
+            <Feast
+                address="address"
+                time="17:00"
+            />
+            <Feast
+                address="address address address address address address"
+                time="17:00"
+                about="вввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввввв"
+            />
+             <Feast
+                address="address"
+                time="17:00"
+                about="описание описание описание описание описание"
+            />
+               <Feast
+                address="address"
+                time="17:00"
+                about="описание описание описание описание описание"
+            />
+            {/* items.map((val, num) => {
                     return <Feast key={val.id} {...val} />
-                })
-            }
+                }) */}
+
         </div>
     );
 }

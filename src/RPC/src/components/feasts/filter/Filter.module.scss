@@ -2,8 +2,8 @@ $bottun-color: #00a3c0;
 $bottum-color-active: #ffd400;
 
 .filter {
+  align-self: flex-start;
   width: 250 px;
-
   border: 1px solid black;
   border-radius: 5px;
   margin-right: 10px;

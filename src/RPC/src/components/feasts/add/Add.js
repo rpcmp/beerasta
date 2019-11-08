@@ -25,17 +25,20 @@ class Add extends React.Component {
                 <h2 className={Styles.title}>Устроить пирушку</h2>
                 <div className={Styles.form}>
                     <div className={Styles.item}>
-                        <p>Адрес</p>
-                        <input className={Styles.input_text} onInput={e => this.setAddress(e.target.value)} placeholder="Адрес"></input>
+                        <p>Город</p>
+                        <input className={Styles.input_text} onInput={e => this.setAddress(e.target.value)} placeholder="Город"></input>
                     </div>
                     <div className={Styles.item}>
-                        <p>Количество человек</p>
-                        <input className={Styles.input_half} placeholder="Min" type="number" onInput={e => this.setMin(e.target.value)}></input>
-                        <input className={Styles.input_half} placeholder="Max" type="number" onInput={e => this.setMax(e.target.value)}></input>
+                        <p>Улица</p>
+                        <input className={Styles.input_text} onInput={e => this.setAddress(e.target.value)} placeholder="Улица"></input>
+                    </div>
+                    <div className={Styles.item}>
+                        <p>Дом</p>
+                        <input className={Styles.input_half} onInput={e => this.setAddress(e.target.value)} placeholder="Дом"></input>
                     </div>
                     <div className={Styles.item}>
                         <p>Описание</p>
-                        <input className={Styles.input_text} placeholder="Описание"></input>
+                        <input className={Styles.input_about} placeholder="Описание" maxLength="150"></input>
                     </div>
                     <div className={Styles.item}>
                         <p>Время начала</p>

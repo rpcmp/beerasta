@@ -1,0 +1,80 @@
+$bottun-color: #00A3C0;
+$bottum-color-active: #FFD400;
+
+
+.feast {
+    width: 1000px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 15px 15px 0 0;
+
+    display: flex;
+
+    background-color: white;
+}
+
+.img {
+    display: block;
+    height: 150px;
+    margin: 25px;
+    // border: 1px solid black;
+}
+
+.info {
+    width: 500px;
+    margin: auto;
+}
+
+.text {
+    width: 100%;
+    display: block;
+    margin: 0;
+
+    &_title {
+        @extend .text;
+        line-height: 50px;
+    }
+
+    &_time {
+        @extend .text;
+        line-height: 25px;
+    }
+
+    &_about {
+        @extend .text;
+        height: 60px;
+        margin: 10px 0 20px 0;
+
+        word-wrap: break-word;
+    }
+}
+
+.action {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.btn {
+    display: block;
+    width: 180px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    &_book {
+        @extend .btn;
+        background-color: $bottun-color
+    }
+
+    &_delete {
+        @extend .btn;
+        background-color: red;
+    }
+}
+
+.btn:hover {
+    background-color: $bottum-color-active
+}

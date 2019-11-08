@@ -1,21 +1,9 @@
-$bottun-color: #00A3C0;
-$bottum-color-active: #FFD400;
 
 .items {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  width: 1000px;
-  margin: auto;
+ 
 
   .item {
-    width: 200px;
-    margin: 25px;
-    padding: 15px 0 15px 0;
-
-    border: 1px solid black;
-    border-radius: 5px;
-    background-color: white;
+    
 
     .address {
       text-align: center;
@@ -60,16 +48,7 @@ $bottum-color-active: #FFD400;
     }
 
     .accept {
-      display: block;
-      margin: auto;
-      width: 180px;
-      // height: 35px;
-      height: 40px;
-
-      border: 1px solid black;
-      border-radius: 5px;
-
-      background-color: $bottun-color
+     
     }
 
     .accept:hover {

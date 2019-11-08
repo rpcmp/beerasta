@@ -20,11 +20,12 @@ $bottum-color-active: #ffd400;
     padding-bottom: 20px;
 
     display: flex;
+    justify-content: space-around;
     align-items: flex-end;
 }
 
 .item {
-    width: 200px;
+    // width: 200px;
     text-align: center;
 }
 
@@ -45,6 +46,12 @@ $bottum-color-active: #ffd400;
         width: 75px;
         padding: 0 5px 0 15px;
         margin: 0 10px 0 10px;
+    }
+
+    &_about {
+        @extend .input;
+        width: 250px;
+        padding: 0 5px 0 15px;
     }
 
     &_time {
