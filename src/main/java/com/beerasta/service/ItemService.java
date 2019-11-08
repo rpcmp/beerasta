@@ -49,7 +49,7 @@ public class ItemService {
 
     public Item deleteBookedItem(User user,
                                  Long itemId) throws NotFoundException {
-        Item item = itemRepository.findOne(itemId);
+        Item item = itemRepository.getOne(itemId);
         log.info(item.toString());
         item.getVisitors().remove(user);
         itemRepository.save(item);
@@ -84,7 +84,7 @@ public class ItemService {
 
     public Item addBookedItem(User user,
                               Long itemId) {
-        Item item = itemRepository.findOne(itemId);
+        Item item = itemRepository.getOne(itemId);
         item.getVisitors().add(user);
         log.info(item.toString());
         itemRepository.save(item);
