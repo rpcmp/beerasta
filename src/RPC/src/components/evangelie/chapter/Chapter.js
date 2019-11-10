@@ -18,7 +18,6 @@ class Chapter extends React.Component {
     }
 
     render() {
-        console.log(Styles);
         return (
             <div className={Styles.chapter}>
                 <button className={Styles.chapter__title} style={this.state.tityleStyle} onClick={this.showText}>{this.props.title}</button>

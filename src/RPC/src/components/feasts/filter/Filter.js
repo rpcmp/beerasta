@@ -8,8 +8,16 @@ function Filter() {
                 <h2 className={Styles.title}>Искать пирушку</h2>
             </div>
             <div className={Styles.item}>
-                <p className={Styles.title}>Адрес</p>
-                <input className={Styles.input_text} placeholder="Адрес"></input>
+                <p className={Styles.title}>Город</p>
+                <input className={Styles.input_text} placeholder="Город"></input>
+            </div>
+            <div className={Styles.item}>
+                <p className={Styles.title}>Улица</p>
+                <input className={Styles.input_text} placeholder="Улица"></input>
+            </div>
+            <div className={Styles.item}>
+                <p className={Styles.title}>Дом</p>
+                <input className={Styles.input_half} placeholder="Дом"></input>
             </div>
             <div className={Styles.item}>
                 <p className={Styles.title}>Время начала</p>

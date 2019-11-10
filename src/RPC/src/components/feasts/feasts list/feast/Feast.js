@@ -14,14 +14,14 @@ class Feast extends React.Component {
     render() {
         return (
             <div className={Styles.feast}>
-                <img className={Styles.img} src={Beer} alt="beer"></img>
+                <img className={Styles.img} src={Beer} alt="beer"/>
                 <div className={Styles.info}>
                     <h3 className={Styles.text_title}>{this.props.address}</h3>
                     <p className={Styles.text_time}>Время начала: {this.props.time}</p>
                     <p className={Styles.text_about}>{this.props.about}</p>
                 </div>
                 <div className={Styles.action}>
-                <button className={Styles.btn_book}>Пирую!</button>
+                    <button className={Styles.btn_book}>Пирую!</button>
                     <button className={Styles.btn_delete}>Удалить!</button>
                 </div>
             </div>
