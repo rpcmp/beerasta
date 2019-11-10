@@ -48,7 +48,7 @@ class Register extends React.Component {
     register() {
         let body = { username: this.state.username, password: this.state.password }
 
-        fetch("/api/registration", {
+        fetch("/registration", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

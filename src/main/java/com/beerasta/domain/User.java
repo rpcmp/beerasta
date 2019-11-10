@@ -1,10 +1,16 @@
 package com.beerasta.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
 
 @Data
 @Entity
@@ -14,7 +20,7 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class User implements Serializable {
+public class User implements Serializable, UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,14 +28,31 @@ public class User implements Serializable {
 
     private final String username;
 
+    @JsonIgnore
     private final String password;
 
-/*    @OneToMany(mappedBy = "owner")
-//    @JoinColumn(name = "items", referencedColumnName = "id")
-    private List<Item> personalItems = new ArrayList<>();
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+    }
 
-    @ManyToMany(mappedBy = "visitors")
-//    @JoinColumn(name = "items", referencedColumnName = "id")
-    private List<Item> bookedItems = new ArrayList<>();*/
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
