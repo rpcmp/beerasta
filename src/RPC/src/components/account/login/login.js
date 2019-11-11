@@ -69,6 +69,8 @@ class Login extends React.Component {
                 method: 'POST'
             }).then(resp => {
                 if (resp.ok) {
+                    console.log(resp.statusText)
+                    console.log(resp.status)
                     localStorage.setItem("user", this.state.username);
                     this.props.history.push("/user");
                 } else {

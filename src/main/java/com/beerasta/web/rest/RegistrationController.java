@@ -37,11 +37,4 @@ public class RegistrationController {
         }
 
     }
-
-//    @PostMapping("/login")
-    public ResponseEntity<User> loadUserByUsername(String username) throws NotFoundException {
-        User user = userService.findByUsername(username);
-        log.info(user.toString());
-        return ResponseEntity.ok(user);
-    }
 }
